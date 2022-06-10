@@ -21,4 +21,20 @@ class EtudiantController extends AbstractController
             "etudiants"=>$etudiants
         ]);
     }
+
+    #[Route('/etudiant/{id}', name: 'app_detail_etudiant')]
+    
+    public function detail(int $id,EtudiantRepository $etuRepo): Response
+    {
+      $detail=$etuRepo->find($id);
+
+// dd($detail);
+        return $this->render('etudiant/detail.html.twig', [
+           "detail"=>$detail
+        ]);
+
+    }
+
+
+  
 }

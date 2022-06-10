@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste demande{% endblock %}
+
+{% block body %}
+
+<div class="bg-primary mt-2 p-2 text-white">
+<h1 class="text-center"> {{title}} </h1>
+</div>
+
+<table class="table bg-white  w-100 table-striped">
+   <tr class="text-center bg-danger border w-100">
+      <th class="text-white">Numéro</th>
+      <th class="text-white">Matricule Etudiant</th>
+      <th class="text-white">Motifs</th>
+      <th class="text-white">Demandes</th>
+      <th class="text-white">Date</th>
+      <th class="text-white">Informations</th>                                 >
+      <!-- <td>Actions</td> -->
+   </tr>
+   {% set numero = 0 %}
+   {% for demande in demandes %}
+        <tr class="text-center">
+         <td>{% set numero = numero+1 %} {{numero}}</td >
+         <td> {{demande.etudiant.matricule}}</td>
+         <td> {{demande.motif}}</td>
+         <td>{{demande.message}}</td>
+         {# la date de la demande #}
+         <td>{{demande.date|date}}</td>
+         <td class="text-center">
+          <button class="bg-primary text-white">Archiver</button>
+         {# <a class="text-white" href="#" ><button class="bg-dark text-white font-weight-bold" >Detail</a> #}
+         <button class="bg-danger text-white " >Supprimer</button> 
+      </td>
+      </tr>
+   {% endfor %}
+</table
+
+{% endblock %}

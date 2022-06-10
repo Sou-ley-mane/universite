@@ -4,7 +4,7 @@
 
 {% block body %}
 
-
+(())
    <div class="bg-primary mt-2 p-2 text-white">
 <h1 class="text-center">{{title}}</h1>
 </div>
@@ -18,7 +18,7 @@
       <th class="text-white">Informations</th>                                 >
       <!-- <td>Actions</td> -->
    </tr>
-   {% set numero = 0 %}
+   {% set numero = 0 %} 
    {% for etudiant in etudiants %}
         <tr class="text-center">
          <td>{% set numero = numero+1 %} {{numero}}</td >
@@ -28,7 +28,7 @@
          <td> {{etudiant.email}}</td>
          <td class="text-center">
           {# <button class="bg-primary">Archiver</button> #}
-         <a class="text-white" href="#" ><button class="bg-dark text-white font-weight-bold" >Detail</a>
+         <a class="text-white" href="{{ path('app_detail_etudiant',{id:etudiant.id}) }}" ><button class="bg-dark text-white font-weight-bold" >Detail</a>
          <button class="bg-danger text-white " >Supprimer</button> 
       </td>
       </tr>

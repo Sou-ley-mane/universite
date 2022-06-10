@@ -9,16 +9,16 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\InheritanceType("JOINED")]
 #[ORM\DiscriminatorColumn(name:"role",type:"string")]
-#[ORM\DiscriminatorMap(["ROLE_RP"=>"Responsable", "_ROLEETUDIANT"=>"Etudiant","ROLE_AC"=>"Attache"])]
+#[ORM\DiscriminatorMap(["ROLE_RP"=>"Responsable", "ROLE_ETUDIANT"=>"Etudiant","ROLE_AC"=>"Attache"])]
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 class User extends Personne implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
+    // #[ORM\Id]
+    // #[ORM\GeneratedValue]
+    // #[ORM\Column(type: 'integer')]
+    // private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
@@ -29,10 +29,10 @@ class User extends Personne implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(type: 'string')]
     private $password;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    // public function getId(): ?int
+    // {
+    //     return $this->id;
+    // }
 
     public function getEmail(): ?string
     {

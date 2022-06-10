@@ -20,8 +20,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
-
+                target: app_login
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -30,9 +29,14 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+    # Definition des routes protégées
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/attache, roles: ROLE_AC }
+        # - { path: ^/etudiant, roles: ROLE_ETUDIANT }
+        # - { path: ^/liste, roles: ROLE_RP }
+        # - { path: ^/home, roles: ROLE_USER }
+
+
 
 when@test:
     security:

@@ -3,18 +3,73 @@
 {% block title %}Hello InscriptionController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/souleymane/gestion_scolaire/src/Controller/InscriptionController.php'|file_link(0) }}">src/Controller/InscriptionController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/souleymane/gestion_scolaire/templates/inscription/index.html.twig'|file_link(0) }}">templates/inscription/index.html.twig</a></code></li>
-    </ul>
+    <h1>{{ title }}</h1>
 </div>
+{{form_start(form)}}
+{{ form_row(form.nomComplet,{'attr':{ 'class':'form-control' }}) }}
+{{ form_row(form.email,{'attr':{ 'class':'form-control' }}) }}
+{{ form_row(form.matricule,{'attr':{ 'class':'form-control' }}) }}
+{{ form_row(form.password,{'attr':{ 'class':'form-control' }}) }}
+{{ form_row(form.adresse,{'attr':{ 'class':'form-control' }}) }}
+{{ form_row(form.sexe,{'attr':{ 'class':'form-control' }}) }}
+
+
+
+    <div class="mb-3">
+                <label class=" font-weight-bold" for="">Ac</label>
+                <select name="att" id=""  class="form-control">
+                <option disabled selected>--Veillez choisir un Ac--</option>
+             {% for acs in ac %}
+                    <option value="{{acs.id}}">{{acs.nomComplet}}</option> 
+             {% endfor %}    
+                </select> 
+            </div>
+
+  <div class="mb-3">
+                <label class=" font-weight-bold" for="">Année universitaire</label>
+                <select name="annee" id="" class="form-control">
+                {% for annee in annees %}
+                    <option value="{{annee.id}}">{{annee.libelle}}</option>
+                {% endfor %}
+                </select> 
+            </div>
+
+    <div class="mb-3">
+                <label class=" font-weight-bold" for="">Classe</label>
+                <select name="classe" id=""  class="form-control">
+                <option disabled selected>--Veillez choisir une classe --</option>
+             {% for classe in classes %}
+                    <option value="{{classe.id}}">{{classe.nomClasse}}</option>
+             {% endfor %}
+                </select> 
+            </div>
+
+               <div class="mb-3">
+                <label class=" font-weight-bold" for="">Niveau</label>
+                <select name="niveau" id=""  class="form-control">
+                <option disabled selected>--Veillez choisir un niveau --</option>
+             {% for niv in niveau %}
+                    <option value="{{niv.id}}">{{niv.nomNiveau}}</option>
+             {% endfor %}   
+                </select> 
+            </div>
+
+               <div class="mb-3">
+                <label class=" font-weight-bold" for="">Filieres</label>
+                <select name="filiere" id=""  class="form-control">
+                <option disabled selected>--Veillez choisir une filiere --</option>
+             {% for fil in filieres %}
+                    <option value="{{fil.id}}">{{fil.nomFiliere}}</option>
+        
+             {% endfor %}
+                   
+                </select> 
+            </div>
+
+ <button type="submit" class="btn btn-success bg-success  w-100">INSCRIRE</button>
+
+{{form_end(form)}}
 {% endblock %}

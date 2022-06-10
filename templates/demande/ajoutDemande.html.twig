@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DemandeController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1 class="text-center">{{ title }}</h1>
+</div>
+{{form_start(form)}}
+ {# <button>Envoyer<button/> #}
+  <div class="mb-3">
+                <label class=" font-weight-bold" for="">Etudiant qui effectue la demande</label>
+                <select name="etudiant" id=""  class="form-control">
+                <option disabled selected>--Veillez choisir un etudiant--</option>
+             {% for etude in etudiants %}
+                    <option value="{{etude.id}}">{{etude.nomComplet}}</option> 
+             {% endfor %}    
+                </select> 
+            </div>
+
+             <div class="mb-3">
+                <label class=" font-weight-bold" for="">RP qui traite la demande</label>
+                <select name="respon" id=""  class="form-control">
+                <option disabled selected>--Veillez choisir un etudiant--</option>
+             {% for rp in rp %}
+                    <option value="{{rp.id}}">{{rp.nomComplet}}</option> 
+             {% endfor %}    
+                </select> 
+            </div>
+ <button type="submit" class="btn btn-success bg-success  w-100">Envoyer la demande</button>
+           
+{{form_end(form)}}
+
+{% endblock %}

@@ -17,6 +17,16 @@
         {% endblock %}
     </head>
     <body>
+    <div>
+      {# {% if is_granted('ROLE_AC  ') %} #}
+    <a class="btn btn-lg btn-primary m-2" href="{{path('app_inscription')}}">GESTION DES INSCRIPTIONS<a/>
+    {# {% endif %} #}
+    <a class="btn btn-lg btn-danger m-2" href="{{path('app_attache')}}">GESTION DES ATTACHES<a/>
+    <a class="btn btn-lg btn-success m-2" href="">GESTION DES PROFESSEURS<a/>
+    <a class="btn btn-lg btn-dark m-2" href="">GESTION DES ETUDIANTS<a/>
+    <a class="btn btn-lg btn-dark m-2" href="{{path('app_demande')}}">GESTION DES DEMANDES<a/>
+
+    </div>
         {% block body %}{% endblock %}
     </body>
 </html>
